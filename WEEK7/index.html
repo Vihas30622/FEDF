@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Bookstore</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #67b0b0;
+      margin: 0;
+      padding: 2px;
+    }
+    .book-list, .cart {
+      max-width: 700px;
+      margin: auto;
+      background: rgb(74, 97, 166);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(238, 232, 232, 0.1);
+      margin-bottom: 20px;
+    }
+    .book {
+      display: flex;
+      justify-content: space-between;
+      padding: 19px 0;
+      border-bottom: 1px solid #eae9fc;
+    }
+    .book:last-child {
+      border-bottom: none;
+    }
+    button {
+      background: #6cb0ba;
+      color: rgb(255, 255, 255);
+      border: none;
+      border-radius: 6px;
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #749ecc;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+    }
+    .cart-total {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center;">📚ONLINE BOOKSTORE📚</h2>
+  <div class="book-list" id="bookList"></div>
+  <div class="cart">
+    <h2> 🛒 Your Cart :</h2>
+    <div id="cartItems"></div>
+    <div class="cart-total" id="cartTotal">Total To Be Paid: ₹0</div>
+  </div>
+
+  <script type="module">
+    import { displayBooks } from './books.js';
+    import { updateCartUI } from './ui.js';
+    import { cart } from './cart.js';
+
+    
+    displayBooks();
+    
+    updateCartUI(cart);
+  </script>
+</body>
+</html>
