@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Bookstore</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #c7f7f7;
+      margin: 0;
+      padding: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      gap: 20px;
+    }
+
+    .book-list, .cart {
+      background: #7a90d0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .book-list {
+      flex: 0 0 65%;
+    }
+
+    .cart {
+      flex: 0 0 30%;
+    }
+
+    .book {
+      background: #e3e1e1;
+      color: #000000;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    button {
+      background: #5c9f9f;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #6c9ec0;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+    }
+
+    .cart-total {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>📚 Online Bookstore 📚</h2>
+
+  <div class="container">
+    <div class="book-list" id="bookList"></div>
+    <div class="cart">
+      <h2>🛒 Your Cart</h2>
+      <div id="cartItems"></div>
+      <div class="cart-total" id="cartTotal">Total To Be Paid: ₹0</div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { displayBooks } from './books.js';
+    import { updateCartUI } from './ui.js';
+    import { cart } from './cart.js';
+
+    displayBooks();
+    updateCartUI(cart);
+  </script>
+</body>
+</html>
